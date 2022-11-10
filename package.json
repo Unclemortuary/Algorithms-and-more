@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "sortings": "jest"
+    "sortings": "jest sortings",
+    "interviewTasks": "jest interviewTasks"
   },
   "author": "",
   "license": "ISC",
