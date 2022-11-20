@@ -52,6 +52,18 @@ const selectionSort = function(items) {
     // 1. Take the first element and iterate through a list with purpose to find lower element
     // 2. If there is a lower element - swap it with the first
     // 3. Repeat the algorithm for next element until the LAST BUT ONE element
+
+    /* Operations count estimation
+        validation = 1
+        for first loop:
+            first loop runs n-1 times. In every iteration there is 2 + 1 + 1 + swap (1 + 1 + 1 + 1) = 8 operations
+        for second loop:
+            second loop runs n-1 then n-2 then ... 2 then 1 times. I.e. it runs (n^2-n)/2 times. Each iteration has 2 + 1 + 1 + 1 = 5 operations
+            in worst scenario (if statement executes every iteration)
+        final formula = 1 + 8n - 8 + 5 * (n^2 - n)/2 = 8n - 7 + 2.5n^2 - 2.5n = 2.5n^2 - 5.5n - 7;
+
+        for 4 elements in worst case this algorithm executes 2.5 * 16 - 5.5 * 4 - 7 = 11 operations
+    */
 //  __________________________________________________________________________________________
     inputArrayValidation(items);
 
