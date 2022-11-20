@@ -1,4 +1,6 @@
-const quickSort = require('./index.js');
+const { 
+    quickSort, 
+    selectionSort } = require('./index.js');
 
 describe('quickSort', () => {
     test('unordered urray gets ordered', () => {
