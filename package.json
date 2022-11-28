@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "sortings": "jest sortings",
-    "interviewTasks": "jest interviewTasks"
+    "interviewTasks": "jest interviewTasks",
+    "maxSubArrays": "jest interviewTasks/maximumSubArray.test.js"
   },
   "author": "",
   "license": "ISC",

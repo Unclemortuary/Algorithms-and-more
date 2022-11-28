@@ -1,4 +1,4 @@
-const isPerfectNumber = require('./isPerfectNumner.js');
+const isPerfectNumber = require('./isPerfectNumber.js');
 
 describe('is perfect number tests', () => {
     test('28 - true', () => expect(isPerfectNumber(28)).toBeTruthy());
