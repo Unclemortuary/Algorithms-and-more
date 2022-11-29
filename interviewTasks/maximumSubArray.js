@@ -30,19 +30,19 @@ function findMaxSubArray(array) {
     const subArrays = new Map();
     let subArraySum = 0;
     let tempSubArray = [];
-    let hasSameValues = false;
+    let tieCasePostfix = 0;
 
     array.forEach((item, index) => {
+        const needToPush = item < 0 || index === array.length - 1;
+
         if (item >= 0) {
             tempSubArray.push(item);
             subArraySum += item;
-            if (index === array.length - 1) {
-                
-            }
-        } else {
+        }
+        if (needToPush && tempSubArray.length > 0) {
             if (subArrays.has(subArraySum.toString())) {
-                subArraySum = subArraySum + `_${index}`;
-                hasSameValues = true;
+                subArraySum = subArraySum + `_${tieCasePostfix}`;
+                tieCasePostfix++;
             }
             subArrays.set(subArraySum.toString(), Array.from(tempSubArray));
             tempSubArray = [];
@@ -52,7 +52,7 @@ function findMaxSubArray(array) {
 
     if (subArrays.size === 0) { return noAnswer; }
 
-    let max = null;
+    let max = 0;
     for (const [key, value] of subArrays) {
         const intKey = parseInt(key.split('_')[0], 10);
         if (intKey > max) {
@@ -60,9 +60,30 @@ function findMaxSubArray(array) {
         }
     }
 
-    return subArrays.get(max.toString());
-};
+    const tieCase = subArrays.has(`${max}_0`);
 
-findMaxSubArray([1,2,3]);
+    if (tieCase) {
+        let lengths = [];
+        let maxLength = 0;
+        const firstSequenceLength = subArrays.get(max.toString()).length;
+
+        for (let index = 0; index < tieCasePostfix; index++) {
+            const key = `${max}_${index}`;
+            const subArray = subArrays.get(key);
+            lengths.push(subArray.length);
+            maxLength = maxLength < subArray.length ? subArray.length : maxLength;
+        }
+
+        if (firstSequenceLength >= maxLength) {
+            return subArrays.get(max.toString());
+        }
+
+        if (lengths.filter(length => length === maxLength).length === 1) {
+            return subArrays.get(`${max}_${lengths.findIndex(v => v === maxLength)}`);
+        }
+    } else {
+        return subArrays.get(max.toString());
+    }
+};
 
 module.exports = findMaxSubArray;
