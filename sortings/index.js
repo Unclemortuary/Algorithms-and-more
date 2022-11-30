@@ -1,5 +1,4 @@
-// todo: refactor
-const quickSort = function(items, depth) {
+const quickSort = function(items) {
 
     // RECURSIVE
     // 0. If there is only 1 item in a input list - return this item
@@ -12,7 +11,7 @@ const quickSort = function(items, depth) {
     inputArrayValidation(items);
     if (items.length <= 1) {
         // 0
-        return items.pop();
+        return [items.pop()];
     }
     // 1
     const pivot = items.pop();
@@ -30,20 +29,20 @@ const quickSort = function(items, depth) {
     const iterationResult = [];
     if (leftSubSequence.length > 0) {
         // 3
-        const lowest = quickSort(leftSubSequence, depth + 1);
+        const lowest = quickSort(leftSubSequence);
         // 4
-        iterationResult.unshift(lowest);
+        iterationResult.unshift(...lowest);
     }
     // 4
     iterationResult.push(pivot);
     if (rightSubSequence.length > 0) {
         // 3
-        const greatest = quickSort(rightSubSequence, depth + 1);
+        const greatest = quickSort(rightSubSequence);
         // 4
-        iterationResult.push(greatest);
+        iterationResult.push(...greatest);
     }
 
-    return iterationResult.flat(depth);
+    return iterationResult;
 };
 
 
