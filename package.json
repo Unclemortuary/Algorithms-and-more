@@ -5,7 +5,8 @@
   "scripts": {
     "sortings": "jest sortings",
     "interviewTasks": "jest interviewTasks",
-    "maxSubArrays": "jest interviewTasks/maximumSubArray.test.js"
+    "maxSubArrays": "jest interviewTasks/maximumSubArray.test.js",
+    "firstAnagram": "jest interviewTasks/findFirstAnagram.test.js"
   },
   "author": "",
   "license": "ISC",
