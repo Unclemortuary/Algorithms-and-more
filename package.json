@@ -6,7 +6,8 @@
     "sortings": "jest sortings",
     "interviewTasks": "jest interviewTasks",
     "maxSubArrays": "jest interviewTasks/maximumSubArray.test.js",
-    "firstAnagram": "jest interviewTasks/findFirstAnagram.test.js"
+    "firstAnagram": "jest interviewTasks/findFirstAnagram.test.js",
+    "validParentheses": "jest interviewTasks/validParentheses.test.js"
   },
   "author": "",
   "license": "ISC",
