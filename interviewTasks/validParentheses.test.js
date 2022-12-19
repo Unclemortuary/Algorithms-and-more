@@ -6,4 +6,5 @@ describe('valid parentheses tests', () => {
     test('unclosed bracket ([]{} - invalid', () => expect(isValidParentheses('([]{}')).toBeFalsy());
     test('closed in proper order ([({})]) - valid', () => expect(isValidParentheses('([({})])')).toBeTruthy());
     test('closed in improper order ([({}]]) - invalid', () => expect(isValidParentheses('([({}]])')).toBeFalsy());
+    test('nesting - invalid ((()()))) - invalid', () => expect(isValidParentheses('((()())))')).toBeFalsy());
 });
