@@ -8,7 +8,8 @@
     "maxSubArrays": "jest interviewTasks/maximumSubArray.test.js",
     "firstAnagram": "jest interviewTasks/findFirstAnagram.test.js",
     "validParentheses": "jest interviewTasks/validParentheses.test.js",
-    "generateParenthesis": "jest interviewTasks/generateParenthesis.test.js"
+    "generateParenthesis": "jest interviewTasks/generateParenthesis.test.js",
+    "topM": "jest interviewTasks/topMNumbersWithoutDigitsFromBottomM.test.js"
   },
   "author": "",
   "license": "ISC",
